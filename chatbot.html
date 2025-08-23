@@ -54,19 +54,39 @@
         );
       }
 
+      function ChatMessages(){
+        const ChatMessages = [{
+          message: 'hello from props',
+          sender: 'user',
+          id: 'id1'
+        },{
+          message: 'hi from props robot',
+          sender: 'robot',
+          id: 'id2'
+        }];
+        
+        return(
+        <>
+          {ChatMessages.map((chatMessage) => {
+            return (
+              <ChatMessage 
+                message= {chatMessage.message} 
+                sender= {chatMessage.sender}
+                key={chatMessage.id}
+              />
+            );
+          })}
+        </>
+      )
+
+      }
+
       function App(){
-        return (
-          <>
-            <ChatInput />
-            <ChatMessage 
-              message="hello from props" 
-              sender="user" 
-            />
-            <ChatMessage 
-              message="hi from props robot" 
-              sender="robot" 
-            />
-          </>
+          return (
+            <>
+              <ChatInput />
+              <ChatMessages />
+            </>
 
         );
       }
