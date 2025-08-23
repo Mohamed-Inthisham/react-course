@@ -55,7 +55,7 @@
       }
 
       function ChatMessages(){
-        const ChatMessages = [{
+        const chatMessages = [{
           message: 'hello from props',
           sender: 'user',
           id: 'id1'
@@ -64,10 +64,21 @@
           sender: 'robot',
           id: 'id2'
         }];
+
+        function SendMessage(){
+          chatMessages.push({
+            message: 'test',
+            sender: 'user',
+            id: crypto.randomUUID()
+          });
+
+          console.log(chatMessages);
+        }
         
         return(
         <>
-          {ChatMessages.map((chatMessage) => {
+          <button onClick={SendMessage}>Send message</button>
+          {chatMessages.map((chatMessage) => {
             return (
               <ChatMessage 
                 message= {chatMessage.message} 
